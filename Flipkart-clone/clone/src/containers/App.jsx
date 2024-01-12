@@ -1,24 +1,18 @@
-import React , {Suspense} from 'react'
-import {Routes , Route } from "react-router-dom"
-import Layout from '../Layouts/Layout'
-import AdminLayout from '../Layouts/AdminLayout'
-import { Home,UserProfile } from '../pages'
+import React from 'react'
+import {Route, Routes} from "react-router-dom"
+import Header from '../components/Header'
+import MainContainer from '../components/MainContainer'
 
 const App = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path ="/" element={<Home />} />
-            <Route path ="/profile/:uid" element={<UserProfile />} />
-
-            {/* admin layout*/}
-            <Route path="/admin" element={<AdminLayout />}>
-              
-            </Route>
-          </Route>
-        </Routes>
-    </Suspense>
+    <div className='w-screen h-auto flex flex-col bg-slate-100'>
+        <Header />
+        <main className='mt-14 md:mt-20 md:px-16 py-4 w-full'>
+          <Routes>
+            <Route path='/*' element={<MainContainer />} />
+          </Routes>
+        </main>
+    </div>
   )
 }
 
