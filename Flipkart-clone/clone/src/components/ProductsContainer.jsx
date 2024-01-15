@@ -9,6 +9,7 @@ import Travel from "../images/travel.webp"
 import Bikes from "../images/bikes.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import ProductsPage from './ProductsPage'
 
 const ProductsContainer = () => {
 
@@ -40,6 +41,7 @@ const ProductsContainer = () => {
                     className='w-24 min-w-[120px] h-30 cursor-pointer 
                 rounded-lg drop-shadow-xl flex flex-col gap-3 items-center 
                 justify-center'
+                    onClick={<ProductsPage />}
                 >
                     <img src={Grocery} className='w-15 h-2 flex flex-1 flex-row' alt="grocery" />
                     <p className='font-semibold Weight 800 text-slate-950'>Grocery</p>

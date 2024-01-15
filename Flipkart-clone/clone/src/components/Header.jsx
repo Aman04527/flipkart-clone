@@ -1,18 +1,35 @@
-import React , {useState} from 'react'
+import React , {useCallback, useState} from 'react'
 import Logo from "../images/logo.png"
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCaretDown, faCartShopping, faEllipsisVertical, faSearch , faShop, faUser  } from '@fortawesome/free-solid-svg-icons';
+import { GoogleAuthProvider, signInWithRedirect} from "firebase/auth"
+import { auth } from "../config/firebase.config"
 
 
 
 const Header = () => {
   const [showDropdown , setShowDropdown] = useState(false);
 
+  const googleProvider = new GoogleAuthProvider()
+
   const toggleDropdown = () =>{
     setShowDropdown(!showDropdown);
   }
+
+  const handleLoginAction = useCallback(async () => {
+    try{
+      const userCred = await signInWithRedirect(auth,googleProvider);
+      if(userCred){
+        console.log(userCred);
+      }
+    }catch(error){
+      console.error('Error during login:',error);
+    }
+  },[]);
+  
+
 
   return (
     <header className='fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-white'>
@@ -56,7 +73,7 @@ const Header = () => {
                 <FontAwesomeIcon icon={faCaretDown} className='text-gray-400 cursor-pointer' onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown} />
                 {showDropdown && (
                   <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-md py-2 z-10">
-                    <Link to={"/profile"} className="block px-4 py-2 hover:bg-gray-100">My Profile</Link>
+                    <Link to={"/profile"} className="block px-4 py-2 hover:bg-gray-100" onClick={handleLoginAction}>My Profile</Link>
                     <Link to={"/notifications"} className="block px-4 py-2 hover:bg-gray-100">Notifications</Link>
                     <Link to={"/logout"} className="block px-4 py-2 hover:bg-gray-100">Logout</Link>
                   </div>
