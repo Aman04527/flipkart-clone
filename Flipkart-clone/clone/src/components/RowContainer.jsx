@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import data from "../utils/data";
 import { motion } from "framer-motion";
 
-const RowContainer = ({flag , scrollValue1}) => {
+const RowContainer = ({flag , scrollValue1 , wrapping}) => {
 
   const rowContainer = useRef();
 

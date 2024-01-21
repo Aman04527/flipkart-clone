@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from "react-router-dom"
 import {motion} from"framer-motion"
 import Grocery from "../images/grocery.webp"
 import Mobiles from "../images/mobiles.webp"
@@ -9,7 +10,6 @@ import Travel from "../images/travel.webp"
 import Bikes from "../images/bikes.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons'
-import ProductsPage from './ProductsPage'
 
 const ProductsContainer = () => {
 
@@ -38,24 +38,25 @@ const ProductsContainer = () => {
             <div className='w-full flex items-center justify-start lg:justify-center gap-8 py-6'>
                 <motion.div
                     whileTap={{ scale: 0.75 }}
-                    className='w-24 min-w-[120px] h-30 cursor-pointer 
-                rounded-lg drop-shadow-xl flex flex-col gap-3 items-center 
-                justify-center'
-                    onClick={<ProductsPage />}
                 >
-                    <img src={Grocery} className='w-15 h-2 flex flex-1 flex-row' alt="grocery" />
-                    <p className='font-semibold Weight 800 text-slate-950'>Grocery</p>
+                    <Link to ={"/ProductsPage"} className='w-24 min-w-[120px] h-30 cursor-pointer 
+                rounded-lg drop-shadow-xl flex flex-col gap-3 items-center 
+                justify-center'>
+                        <img src={Grocery} className='w-15 h-2 flex flex-1 flex-row' alt="grocery" />
+                        <p className='font-semibold Weight 800 text-slate-950'>Grocery</p>
+                    </Link>
                 </motion.div>
 
 
                 <motion.div
                     whileTap={{ scale: 0.75 }}
-                    className='w-24 min-w-[120px] h-30 cursor-pointer 
-                rounded-lg drop-shadow-xl flex flex-col gap-3 items-center 
-                justify-center'
                 >
+                    <Link to ={"/ProductsPage"} className='w-24 min-w-[120px] h-30 cursor-pointer 
+                rounded-lg drop-shadow-xl flex flex-col gap-3 items-center 
+                justify-center'>
                     <img src={Mobiles} className='w-15 h-2 flex flex-1 flex-row' alt="mobile" />
                     <p className='font-semibold Weight 800 text-slate-950'>Mobiles</p>
+                </Link>
                 </motion.div>
 
                 <div className='relative z-10'>

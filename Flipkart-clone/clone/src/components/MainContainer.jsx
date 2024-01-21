@@ -86,7 +86,7 @@ const MainContainer = () => {
         <section className='w-full my-6 bg-white relative'>
             <div >
                 <h1 className='font-semibold text-xl text-slate-950 py-4 px-4'>Best Of Electronics</h1>
-                <RowContainer flag={'Electronics'} scrollValue1={scrollValue1}/>
+                <RowContainer flag={'Electronics'} scrollValue1={scrollValue1} wrapping={false} />
                 <FontAwesomeIcon
                     icon={faChevronCircleRight}
                     className='absolute top-1/2 transform -translate-y-1/2 right-0 w-8 h-8 text-gray-400 cursor-pointer'
@@ -97,7 +97,7 @@ const MainContainer = () => {
         <section className='w-full my-6 bg-white relative'>
             <div>
                 <h1 className='font-semibold text-xl text-slate-950 py-4 px-4 '>Beauty, Toys, Foods & More</h1>
-                <RowContainer flag={'CateToys'} scrollValue={scrollValue1}/>
+                <RowContainer flag={'CateToys'} scrollValue={scrollValue1} wrapping={false}/>
                 <FontAwesomeIcon
                     icon={faChevronCircleRight}
                     className='absolute top-1/2 transform -translate-y-1/2 right-0 w-8 h-8 text-gray-400 cursor-pointer'
