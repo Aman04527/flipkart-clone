@@ -4,7 +4,8 @@
 
 export const actionType = {
     SET_USER: "SET_USER",
-}
+    SET_PROD_ITEMS: "SET_PROD_ITEMS",
+};
 
 const reducer = (state , action) => {
     console.log(action);
@@ -14,6 +15,12 @@ const reducer = (state , action) => {
                 //All state must be same only the user state must be changed
                 ...state,
                 user: action.user
+            }
+        case actionType.SET_PROD_ITEMS:
+            return{
+                //All state must be same only the user state must be changed
+                ...state,
+                ProductItems: action.ProductItems
             }
         default:
             return state;

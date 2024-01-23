@@ -7,7 +7,6 @@ import Spinner from "../images/fidget-spinner.webp"
 import Keyboard from "../images/Keyboard.webp"
 import Rope from "../images/skipping-rope.webp"
 
-
 const data = [
   {
     image: Canon,
@@ -57,18 +56,6 @@ const data = [
     description: 'Shop Now',
     category: 'Electronics',
   },
-//   {
-//     image: TransformerCD,
-//     title: 'OutBreak Saga',
-//     description: 'Shop Now',
-//     category: 'CateToys',
-//   },
-//   {
-//     image: Spring,
-//     title: 'Spring for GYM ',
-//     description: 'Shop Now',
-//     category: 'CateToys',
-//   },
   {
     image: Rope,
     title: 'Skipping-Rope',
