@@ -3,9 +3,11 @@ import data from "../utils/data"
 import {motion} from "framer-motion"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { useStateValue } from '../context/StateProvider'
 
 const ItemsPage = () => {
-
+  const [{ProductItems }, dispatch] = useStateValue();
+  console.log(ProductItems)
   return (
     <div className='w-full flex  items-center gap-3 my-24 mx-12'>
         <div className='flex flex-wrap items-center justify-evenly cursor-pointer '>

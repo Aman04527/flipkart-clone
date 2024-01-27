@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import data from "../utils/data";
 import { motion } from "framer-motion";
 
@@ -15,7 +15,7 @@ const RowContainer = ({flag , scrollValue1 , wrapping}) => {
   },[scrollValue1])
 
   return (
-    <div ref={rowContainer} className='w-full overflow-auto scroll-smooth flex items-center gap-3 my-12'>
+    <div ref={rowContainer} className='w-full overflow-x-scroll scrollbar-none flex items-center gap-3 my-12'>
       <div className="flex items-center justify-evenly cursor-pointer space-x-6 px-4">
         {filteredData.map((item, index) => (
           <div key={index} className="w-[250px] h-[340px] bg-white rounded-lg p-2 px-4 border-solid border-2 border-gray-400">

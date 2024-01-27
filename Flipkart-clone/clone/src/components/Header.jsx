@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCaretDown, faCartShopping, faEllipsisVertical, faSearch , faShop, faUser  } from '@fortawesome/free-solid-svg-icons';
 import { GoogleAuthProvider, getAuth, signInWithPopup} from "firebase/auth"
-import { auth,app } from "../config/firebase.config"
+import { app } from "../config/firebase.config"
 import {useStateValue} from "../context/StateProvider"
 import { actionType } from '../context/reducer';
 import Avatar from '../images/836.jpg'
@@ -34,6 +34,14 @@ const Header = () => {
       });
       localStorage.setItem("user" , JSON.stringify(providerData[0]));
     }
+  }
+
+  const logout = () => {
+    localStorage.clear();
+    dispatch({
+      type: actionType.SET_USER,
+      user: null,
+    })
   }
 
   const MenuCont = () =>{
@@ -84,7 +92,7 @@ const Header = () => {
                   <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-md py-2 z-10">
                     <Link to={"/profile"} className="block px-4 py-2 hover:bg-gray-100">My Profile</Link>
                     <Link to={"/notifications"} className="block px-4 py-2 hover:bg-gray-100">Notifications</Link>
-                    <Link to={"/logout"} className="block px-4 py-2 hover:bg-gray-100">Logout</Link>
+                    <Link to={"/logout"} className="block px-4 py-2 hover:bg-gray-100" onClick={logout}>Logout</Link>
                   </div>
                 )}
               </div>
